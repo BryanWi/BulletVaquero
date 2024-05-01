@@ -10,7 +10,8 @@ var scene_paths = {
 }
 
 
-## Permite que los 
+## Permite que cualquier script tenga acceso a cambiar la escena por una de las 
+## almacenadas en scene_paths
 func change_scene(scene_name):
 	if scene_paths.has(scene_name):
 		get_tree().change_scene_to_file(scene_paths[scene_name])
