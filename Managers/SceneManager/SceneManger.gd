@@ -5,9 +5,8 @@ class_name Scene_Manager
 ## Guarda las direcciones a las distintas escenas, para agregar más basta con arrastrar la escena
 ## para que se copie la dirección
 var scene_paths = {
-	"main" : "",
-	"game" : "res:/game/game.tscn",
-	"juego2" : ""
+	"main" : "res://Scenes/Main/main.tscn",
+	"test_map" : "res://Scenes/test_map/test_map.tscn"
 }
 
 
