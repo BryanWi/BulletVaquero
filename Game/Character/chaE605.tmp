@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://mnvxvyo8y637"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_av2t6"]
+[ext_resource type="Texture2D" uid="uid://l3bs6yjtgnm0" path="res://Game/Character/sprites/SOMBRERO_VERT_ABA.png" id="3_5dpjt"]
+[ext_resource type="Texture2D" uid="uid://cybd2h1tgsw4e" path="res://Game/Character/sprites/SOMBRERO_HOR_IZQ.png" id="4_kq24j"]
+[ext_resource type="Texture2D" uid="uid://dj6kx3vde4g4i" path="res://Game/Character/sprites/SOMBRERO_HOR_DER.png" id="5_dlilw"]
+[ext_resource type="Texture2D" uid="uid://bytqkdfpsmesx" path="res://Game/Character/sprites/SOMBRERO_VERT_ARR.png" id="6_ykn10"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lx6hu"]
+radius = 19.0263
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vpfs7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_5dpjt")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_kq24j")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_dlilw")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ykn10")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="Character" type="CharacterBody2D"]
+script = ExtResource("1_av2t6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lx6hu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.424, 0.424)
+sprite_frames = SubResource("SpriteFrames_vpfs7")
+animation = &"up"
+autoplay = "right"
+
+[node name="Input" type="MultiplayerSynchronizer" parent="."]
