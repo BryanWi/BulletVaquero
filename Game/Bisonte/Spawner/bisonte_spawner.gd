@@ -6,11 +6,12 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func spawn_manada(izq:bool):
 	var m = manada.instantiate()
 	if izq:
 		pass
+
+## Timer para aparecer las manadas
+## Cambiar el tiempo aleatoriamente cada que se usa
+func _on_timer_timeout():
+	pass # Replace with function body.
