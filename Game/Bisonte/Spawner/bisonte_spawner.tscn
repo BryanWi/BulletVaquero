@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://ostpg2b5648l"]
+
+[ext_resource type="Script" path="res://Game/Bisonte/Spawner/bisonte_spawner.gd" id="1_3hxj3"]
+
+[node name="BisonteSpawner" type="Node2D"]
+script = ExtResource("1_3hxj3")
+
+[node name="Izq" type="Node2D" parent="."]
+
+[node name="up" type="Marker2D" parent="Izq"]
+position = Vector2(-90, 108)
+
+[node name="mid" type="Marker2D" parent="Izq"]
+position = Vector2(-90, 324)
+
+[node name="down" type="Marker2D" parent="Izq"]
+position = Vector2(-90, 540)
+
+[node name="Der" type="Node2D" parent="."]
+position = Vector2(1333, 0)
+
+[node name="up" type="Marker2D" parent="Der"]
+position = Vector2(-90, 108)
+
+[node name="mid" type="Marker2D" parent="Der"]
+position = Vector2(-90, 324)
+
+[node name="down" type="Marker2D" parent="Der"]
+position = Vector2(-90, 540)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
