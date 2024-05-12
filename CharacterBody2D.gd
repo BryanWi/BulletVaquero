@@ -1,9 +1,8 @@
 extends CharacterBody2D
 class_name Character
 
-const SPEED = 600.0
+const SPEED = 60000.0
 
-@onready var input = $Input
 @onready var character_sprite = $AnimatedSprite2D
 var direction:Vector2 = Vector2.ZERO
 
@@ -12,7 +11,7 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_vector("left", "right","forward","downward")
 	if direction:
-		velocity = direction * SPEED
+		velocity = direction * SPEED*delta
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y, 0, SPEED)
