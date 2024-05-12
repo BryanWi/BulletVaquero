@@ -19,6 +19,17 @@ config/icon="res://icon.svg"
 
 SceneManger="*res://Managers/SceneManager/SceneManger.gd"
 
+[input]
+
+forward={
+"deadzone": 0.5,
+"events": []
+}
+downward={
+"deadzone": 0.5,
+"events": []
+}
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

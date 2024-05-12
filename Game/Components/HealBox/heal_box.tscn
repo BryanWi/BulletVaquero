@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dilir8di2r8mv"]
+
+[ext_resource type="Script" path="res://Game/Components/HealBox/heal_box.gd" id="1_618i5"]
+
+[node name="HealBox" type="Area2D"]
+script = ExtResource("1_618i5")
