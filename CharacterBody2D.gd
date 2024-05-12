@@ -37,3 +37,17 @@ func sprite_changes():
 	elif (global_rotation_degrees > 45) && (global_rotation_degrees < 135):
 		character_sprite.rotation = deg_to_rad(270)
 		character_sprite.play("down")
+
+
+func _on_health_component_health_changed(new_health):
+	
+	if new_health == 5:
+		pass
+	elif new_health == 4:
+		pass
+	elif new_health == 3:
+		pass
+	elif new_health == 2:
+		pass
+	elif new_health == 1:
+		pass
