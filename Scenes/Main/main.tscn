@@ -1,3 +1,15 @@
-[gd_scene format=3 uid="uid://m512s6x6j6iu"]
+[gd_scene load_steps=2 format=3 uid="uid://m512s6x6j6iu"]
+
+[ext_resource type="Script" path="res://Scenes/Main/main.gd" id="1_rkg31"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_rkg31")
+
+[node name="test_map" type="Button" parent="."]
+offset_left = 483.0
+offset_top = 243.0
+offset_right = 829.0
+offset_bottom = 481.0
+text = "TEST MAP"
+
+[connection signal="button_up" from="test_map" to="." method="_on_test_map_button_up"]
