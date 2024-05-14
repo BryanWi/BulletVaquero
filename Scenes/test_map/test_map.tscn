@@ -1,19 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://ch27uho8o4gwi"]
+[gd_scene load_steps=7 format=3 uid="uid://ch27uho8o4gwi"]
 
 [ext_resource type="PackedScene" uid="uid://mnvxvyo8y637" path="res://Game/Character/character.tscn" id="1_ecaf3"]
 [ext_resource type="PackedScene" uid="uid://drgnxgsw0ax6e" path="res://Game/Components/HurtBox/hurt_box.tscn" id="2_dtprd"]
 [ext_resource type="Texture2D" uid="uid://gs60jrc0rb27" path="res://icon.svg" id="3_hmcq8"]
 [ext_resource type="PackedScene" uid="uid://dilir8di2r8mv" path="res://Game/Components/HealBox/heal_box.tscn" id="4_c6jed"]
+[ext_resource type="PackedScene" uid="uid://ostpg2b5648l" path="res://Game/Bisonte/Spawner/bisonte_spawner.tscn" id="5_klqi1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fek6s"]
 radius = 23.7065
 
 [node name="Test_map" type="Node"]
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="BisonteSpawner" parent="." instance=ExtResource("5_klqi1")]
 
-[node name="Character" parent="." instance=ExtResource("1_ecaf3")]
-position = Vector2(363, 420)
+[node name="Node2D" type="Node2D" parent="."]
 
 [node name="HurtBox" parent="." instance=ExtResource("2_dtprd")]
 position = Vector2(672, 424)
@@ -40,3 +40,6 @@ shape = SubResource("CircleShape2D_fek6s")
 modulate = Color(0.505882, 0.980392, 0.505882, 1)
 scale = Vector2(0.359375, 0.359375)
 texture = ExtResource("3_hmcq8")
+
+[node name="Character" parent="." instance=ExtResource("1_ecaf3")]
+position = Vector2(483, 376)

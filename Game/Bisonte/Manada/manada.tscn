@@ -1,31 +1,40 @@
 [gd_scene load_steps=3 format=3 uid="uid://borafnc68uvqd"]
 
 [ext_resource type="Script" path="res://Game/Bisonte/Manada/manada.gd" id="1_petts"]
-[ext_resource type="PackedScene" uid="uid://c1v0aoikxnhon" path="res://Game/Bisonte/bisonte.tscn" id="2_p1b8l"]
+[ext_resource type="Texture2D" uid="uid://gs60jrc0rb27" path="res://icon.svg" id="3_bymqq"]
 
 [node name="Manada" type="Node2D"]
 script = ExtResource("1_petts")
 
-[node name="Bisonte" parent="." instance=ExtResource("2_p1b8l")]
-position = Vector2(-55, 20)
+[node name="Bisonte_pos" type="Node2D" parent="."]
 
-[node name="Bisonte2" parent="." instance=ExtResource("2_p1b8l")]
-position = Vector2(-28, 0)
+[node name="Marker2D" type="Marker2D" parent="Bisonte_pos"]
+position = Vector2(-30.021, 0)
 
-[node name="Bisonte3" parent="." instance=ExtResource("2_p1b8l")]
-position = Vector2(-71, 1)
+[node name="Marker2D2" type="Marker2D" parent="Bisonte_pos"]
+position = Vector2(-87, -75)
 
-[node name="Bisonte4" parent="." instance=ExtResource("2_p1b8l")]
-position = Vector2(-95, 19)
+[node name="Marker2D3" type="Marker2D" parent="Bisonte_pos"]
+position = Vector2(-78, 76)
 
-[node name="Bisonte5" parent="." instance=ExtResource("2_p1b8l")]
-position = Vector2(-95, -17)
+[node name="Marker2D4" type="Marker2D" parent="Bisonte_pos"]
+position = Vector2(-169, 2)
 
-[node name="Bisonte6" parent="." instance=ExtResource("2_p1b8l")]
-position = Vector2(-54, -19)
+[node name="Marker2D5" type="Marker2D" parent="Bisonte_pos"]
+position = Vector2(-238, -64)
+
+[node name="Marker2D6" type="Marker2D" parent="Bisonte_pos"]
+position = Vector2(-244, 68)
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 custom_minimum_size = Vector2(0, 216)
 offset_top = -108.0
 offset_right = 40.0
 offset_bottom = 108.0
+
+[node name="Icon" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-8.5, 0)
+scale = Vector2(0.445312, 0.3125)
+texture = ExtResource("3_bymqq")

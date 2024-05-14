@@ -9,6 +9,7 @@ class_name HealthComponent
 		health = new_val
 		health_changed.emit(new_val)
 		if health <= 0:
+			
 			health_is_zero.emit()
 
 
