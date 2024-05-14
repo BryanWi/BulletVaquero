@@ -3,6 +3,8 @@
 [ext_resource type="Script" path="res://Game/Components/HealthComponent/health_component.gd" id="1_pispi"]
 
 [node name="HealthComponent" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_pispi")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

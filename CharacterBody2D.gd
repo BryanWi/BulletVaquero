@@ -1,10 +1,13 @@
 extends CharacterBody2D
 class_name Character
 
-const SPEED = 60000.0
+const SPEED = 24000.0
 
 @onready var character_sprite = $AnimatedSprite2D
 var direction:Vector2 = Vector2.ZERO
+
+func _ready():
+	$HealthComponent.health_is_zero.connect(func():SceneManager.change_scene("main"))
 
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.

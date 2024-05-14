@@ -9,7 +9,6 @@ class_name HealthComponent
 		health = new_val
 		health_changed.emit(new_val)
 		if health <= 0:
-			
 			health_is_zero.emit()
 
 
@@ -24,14 +23,15 @@ func _ready():
 	health = max_health
 
 func _on_area_entered(area):
-	print(area)
+	#print(area)
 	if area.name == ("HurtBox"):
 		take_damage(area.damage)
 	elif area.name == ("HealBox"):
 		heal(area.healing)
-	print(health)
+	print("[health] %f" %health)
 
 func take_damage(damage):
+	print("[HEALTH] take damakge")
 	health = health - damage
 
 func heal(healing):

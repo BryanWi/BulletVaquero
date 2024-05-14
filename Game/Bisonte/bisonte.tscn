@@ -1,12 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://c1v0aoikxnhon"]
+[gd_scene load_steps=19 format=3 uid="uid://c1v0aoikxnhon"]
 
 [ext_resource type="PackedScene" uid="uid://drgnxgsw0ax6e" path="res://Game/Components/HurtBox/hurt_box.tscn" id="1_6sf7b"]
 [ext_resource type="Script" path="res://Game/Bisonte/bisonte.gd" id="1_ln641"]
 [ext_resource type="Texture2D" uid="uid://3r16xn2rth0x" path="res://Game/Bisonte/Sprites/BISONTEs.png" id="3_cbaxc"]
 [ext_resource type="Texture2D" uid="uid://gs60jrc0rb27" path="res://icon.svg" id="3_i7c57"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tf663"]
-size = Vector2(42, 20)
 
 [sub_resource type="Curve" id="Curve_s8s8v"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.601626, 0.703297), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -124,19 +121,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5iab"]
-size = Vector2(194, 96)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tf663"]
+size = Vector2(190, 91)
 
 [node name="Bisonte" type="Node2D"]
 script = ExtResource("1_ln641")
-
-[node name="HurtBox" parent="." instance=ExtResource("1_6sf7b")]
-collision_layer = 2
-collision_mask = 0
-damage = 5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-shape = SubResource("RectangleShape2D_tf663")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 visible = false
@@ -159,9 +148,11 @@ visible = false
 scale = Vector2(0.5625, 0.359375)
 texture = ExtResource("3_i7c57")
 
-[node name="HurtBox2" parent="." instance=ExtResource("1_6sf7b")]
+[node name="HurtBox" parent="." instance=ExtResource("1_6sf7b")]
+collision_layer = 2
+collision_mask = 0
 damage = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox2"]
-position = Vector2(-6, -2)
-shape = SubResource("RectangleShape2D_n5iab")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_tf663")

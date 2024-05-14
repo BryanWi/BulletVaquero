@@ -64,11 +64,11 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_efj75"]
-radius = 69.2604
+radius = 22.2036
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lyj4y"]
-radius = 70.0
-height = 166.0
+radius = 24.0
+height = 48.0
 
 [sub_resource type="Animation" id="Animation_cl0k0"]
 length = 0.1
@@ -161,15 +161,12 @@ animation = &"right"
 autoplay = "right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 rotation = -1.5708
 shape = SubResource("CircleShape2D_efj75")
 
 [node name="HealthComponent" parent="." instance=ExtResource("6_nuomn")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HealthComponent"]
-visible = false
-position = Vector2(3, 5)
 shape = SubResource("CapsuleShape2D_lyj4y")
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
