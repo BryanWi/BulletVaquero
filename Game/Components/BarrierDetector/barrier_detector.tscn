@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://biy007nowhl1g"]
+[gd_scene load_steps=3 format=3 uid="uid://biy007nowhl1g"]
 
 [ext_resource type="Script" path="res://BarrierDetector.gd" id="1_oilqw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_17ca5"]
 
 [node name="BarrierDetector" type="Area2D"]
 collision_layer = 0
 collision_mask = 32
 script = ExtResource("1_oilqw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_17ca5")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

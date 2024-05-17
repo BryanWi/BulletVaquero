@@ -5,7 +5,7 @@ const manada = preload("res://Game/Bisonte/Manada/manada.tscn")
 
 #exports
 @export_range(0,1,0.01) var stampeede_probabilty = 0.5 
-@export_range(0,1,0.01) var dual_stampeede_probabilty = 1 
+@export_range(0,1,0.01) var dual_stampeede_probabilty = 0.3
 @export var stampeede_scaling = 0.1
 @export var stampeede_scaling_probablity = 0.2
 
@@ -52,8 +52,10 @@ func _on_timer_timeout():
 		return
 	if randf() < stampeede_scaling_probablity:
 		#var elapsed_sec = (starting_time - Time.get_ticks_msec())/1000.0
-		stampeede_probabilty += 0.4
+		stampeede_probabilty = clamp(stampeede_probabilty*1.3, 0, 0.85)
+		dual_stampeede_probabilty = clamp(dual_stampeede_probabilty * 1.1, 0, 0.6)
 		stampeede_timer.wait_time *= 0.9
+		
 	
 	if randf() < dual_stampeede_probabilty:
 		var side_1 = false if (randf() >= 0.5) else true
@@ -81,5 +83,6 @@ func LASER(pos1:Vector2, pos2:Vector2) -> Tween:
 	L.width_curve = curve
 	var T:Tween = get_tree().create_tween()
 	T.tween_property(L,"width",0,1).set_trans(Tween.TRANS_EXPO)
+	T.tween_callback(func():if L!= null:L.queue_free())
 	self.add_child(L)
 	return T
