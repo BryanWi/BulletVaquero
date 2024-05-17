@@ -128,7 +128,6 @@ size = Vector2(190, 91)
 script = ExtResource("1_ln641")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-visible = false
 position = Vector2(-81, 0)
 scale = Vector2(0.461302, 0.430549)
 amount = 80
@@ -149,8 +148,6 @@ scale = Vector2(0.5625, 0.359375)
 texture = ExtResource("3_i7c57")
 
 [node name="HurtBox" parent="." instance=ExtResource("1_6sf7b")]
-collision_layer = 2
-collision_mask = 0
 damage = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
