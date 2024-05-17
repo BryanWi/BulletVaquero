@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://d3pggv0fod1r0"]
+
+[ext_resource type="Script" path="res://Scenes/Game/game_scene.gd" id="1_8xcf8"]
+[ext_resource type="PackedScene" uid="uid://ostpg2b5648l" path="res://Game/Bisonte/Spawner/bisonte_spawner.tscn" id="2_kql5r"]
+[ext_resource type="PackedScene" uid="uid://mnvxvyo8y637" path="res://Game/Character/character.tscn" id="4_67y52"]
+
+[sub_resource type="GDScript" id="GDScript_g8ci1"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ikhfk"]
+distance = -1024.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_04cby"]
+normal = Vector2(0, 1)
+distance = -500.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0uwsu"]
+normal = Vector2(1, 0)
+distance = -1000.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_q8tus"]
+normal = Vector2(-1, 0)
+distance = -1800.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4e5ol"]
+size = Vector2(1168, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwu8w"]
+size = Vector2(80, 680)
+
+[node name="GameScene" type="Node2D"]
+script = ExtResource("1_8xcf8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -24.0
+offset_top = -8.0
+offset_right = 1246.0
+offset_bottom = 678.0
+color = Color(0.780392, 0.67451, 0.537255, 1)
+
+[node name="Barrier" type="Node2D" parent="."]
+script = SubResource("GDScript_g8ci1")
+
+[node name="DeleteBarrier" type="Area2D" parent="Barrier"]
+collision_layer = 32
+collision_mask = 0
+
+[node name="down" type="CollisionShape2D" parent="Barrier/DeleteBarrier"]
+shape = SubResource("WorldBoundaryShape2D_ikhfk")
+
+[node name="up" type="CollisionShape2D" parent="Barrier/DeleteBarrier"]
+shape = SubResource("WorldBoundaryShape2D_04cby")
+
+[node name="left" type="CollisionShape2D" parent="Barrier/DeleteBarrier"]
+shape = SubResource("WorldBoundaryShape2D_0uwsu")
+
+[node name="right" type="CollisionShape2D" parent="Barrier/DeleteBarrier"]
+shape = SubResource("WorldBoundaryShape2D_q8tus")
+
+[node name="PlayerBarrier" type="StaticBody2D" parent="Barrier"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="up" type="CollisionShape2D" parent="Barrier/PlayerBarrier"]
+position = Vector2(576, -32)
+shape = SubResource("RectangleShape2D_4e5ol")
+
+[node name="down" type="CollisionShape2D" parent="Barrier/PlayerBarrier"]
+position = Vector2(576, 680)
+shape = SubResource("RectangleShape2D_4e5ol")
+
+[node name="left" type="CollisionShape2D" parent="Barrier/PlayerBarrier"]
+position = Vector2(-44, 332)
+shape = SubResource("RectangleShape2D_mwu8w")
+
+[node name="left2" type="CollisionShape2D" parent="Barrier/PlayerBarrier"]
+position = Vector2(1192, 332)
+shape = SubResource("RectangleShape2D_mwu8w")
+
+[node name="BisonteSpawner" parent="." instance=ExtResource("2_kql5r")]
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Character" parent="Characters" instance=ExtResource("4_67y52")]
+position = Vector2(250, 312)

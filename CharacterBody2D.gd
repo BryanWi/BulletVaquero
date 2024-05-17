@@ -3,7 +3,9 @@ class_name Character
 
 const SPEED = 24000.0
 
+@onready var animation_player = $AnimationPlayer
 @onready var character_sprite = $AnimatedSprite2D
+
 var direction:Vector2 = Vector2.ZERO
 
 func _ready():
@@ -15,9 +17,12 @@ func _physics_process(delta):
 	direction = Input.get_vector("left", "right","forward","downward")
 	if direction:
 		velocity = direction * SPEED*delta
+		animation_player.play("WALK_Scale_only")
 	else:
+		animation_player.play("RESET")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y, 0, SPEED)
+	
 	sprite_changes()
 	move_and_slide()
 

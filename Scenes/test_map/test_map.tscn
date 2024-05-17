@@ -11,6 +11,11 @@ radius = 23.7065
 
 [node name="Test_map" type="Node"]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1270.0
+offset_bottom = 686.0
+color = Color(0.780392, 0.67451, 0.537255, 1)
+
 [node name="BisonteSpawner" parent="." instance=ExtResource("5_klqi1")]
 
 [node name="Node2D" type="Node2D" parent="."]
